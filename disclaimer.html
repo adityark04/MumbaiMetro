@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Times New Roman';
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            display: flex;
+        }
+        .containerlink {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .containerlink a {
+            margin-right: 20px;
+        }
+        .logo {
+            width: 80%;
+            max-width: calc(100vw - 40px);
+            display: block;
+            margin-left: auto;
+        }
+        .button-container {
+            position: absolute;
+            top: 35px;
+            left: 120px;
+            z-index: 2;
+        }
+        .button-container button {
+            font-family: 'Times New Roman';
+            color: #fff;
+            background-color: #10459C;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .button-container button:last-child {
+            margin-bottom: 0;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color: #fff;
+        }
+        section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .logos {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            cursor: pointer;
+            margin-left: auto
+        }
+        .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .logocontainer {
+        display: 100px;
+        justify-content: center;
+        text-align: left;
+        }
+        .logo-container img {
+        width: 150px;
+        margin: 0 10px;
+        }
+        .link:hover {
+        background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="metro.jpg" alt="Metro Logo" class="logo">
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href='Signin.html'">Sign Up</button>
+            <button onclick="window.location.href='Login.html'">Login</button>
+            <button onclick="window.location.href='ticket_booking.html'">Book Ticket</button>
+            <button onclick="window.location.href='time_schedule.html'">Time Schedule</button>
+            <button onclick="window.location.href='MetroMAP.html'">Metro Map</button>
+            <button onclick="window.location.href='view_ticket.html'">View Ticket</button>
+        </div>
+    </header>
+    <h1 style="color: #007bff; font-family:'Times New Roman'; text-align: center;">Disclaimer</h1>
+    <section class="container">
+           <p>While every effort has been made to ensure the accuracy and reliability of the information and content provided on this website, MMRDA cannot be held liable for how this information is utilized or for any consequences arising from its use. In the event of any discrepancies or confusion, users are advised to reach out to the relevant Division or Officer of MMRDA for clarification.<br><br>
+            This website is presented by MMRDA. While navigating through this site, users may encounter directories and links to Government and Private Organizations. The content of these external sites should not be interpreted as MMRDA's responsibility or endorsement. Such content is owned by the respective organizations, which users may contact for additional information or suggestions.</p>
+    </section>
+    <br></br>
+    <div class = "logo-container">
+        <a href="https://mmrda.maharashtra.gov.in/">
+            <img src="mmrda.png" alt="MMRDA" class="logos">
+        </a>
+        <a href="https://aaplesarkar.maharashtra.gov.in/en/">
+            <img src="sarkar.png" alt="sarkar" class="logos">
+        </a>
+        <a href="https://mmrcl.com/">
+            <img src="MMRC.png" alt="MMRC" class="logos">
+        </a>
+        <a href="https://www.maharashtra.gov.in/">
+            <img src="Shasan.png" alt="Shasan" class="logos">
+        </a>
+        <a href="https://www.mmmocl.co.in/">
+            <img src="mumbaimetro.png" alt="mumbaimetro" class="logos">
+        </a>
+        <a href="https://www.india.gov.in/">
+            <img src="indiagov.png" alt="indiagov" class="logos">
+        </a>
+        <a href="https://www.digilocker.gov.in/">
+            <img src="digilocker.png" alt="digilocker" class="logos">
+        </a>
+        <a href="https://www.digitalindia.gov.in/">
+            <img src="digitalindia.png" alt="digitalindia" class="logos">
+        </a>
+    </div>
+    <br>
+    <div class = "containerlink" >
+        <a href="index.html">
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> HomePage</h3>
+        </a>
+        <a href="disclaimer.html">
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Disclaimer</h3>
+        </a>
+        <a href="tac.html">
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Terms and Conditions</h3>
+        </a>
+        <a href="policy.html">
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Website Policy</h3>
+        </a>
+        <a href="https://mmrda.maharashtra.gov.in/help">
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Help</h3>
+        </a>
+    </div>
+    <div class = "container" >
+        <h4>Copyright © 2024 Maanya and KAMOO ® All Rights Reserved</h4>
+    </div>
+</body>
+</html>

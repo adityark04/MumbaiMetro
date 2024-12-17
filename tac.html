@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+            font-family: 'Times New Roman'; /* Improved font stack */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f3f3f3; /* Light background color */
+        }
+        header {
+            background-color: #007bff; /* Metro blue header background color */
+            color: #fff; /* Text color for header */
+            padding: 20px 0; /* Add padding to the top and bottom of the header */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space items evenly */
+            align-items: center; /* Center align items vertically */
+        }
+        .container {
+            max-width: 1200px; /* Limit content width for better readability */
+            margin: 0 auto; /* Center align content */
+            padding: 20px; /* Add padding to the container */
+            position: relative; /* Positioning context for absolute positioning */
+            display: flex; /* Use flexbox for layout */
+        }
+        .containerlink {
+            max-width: 1000px; /* Limit content width for better readability */
+            margin: 0 auto; /* Center align content */
+            padding: 20px; /* Add padding to the container */
+            position: relative; /* Positioning context for absolute positioning */
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Align items vertically */
+        }
+        .containerlink a {
+            margin-right: 20px; /* Add margin between links */
+        }
+        .logo {
+            width: 80%; /* Make logo responsive */
+            max-width: calc(100vw - 40px); /* Set max-width to fit window size */
+            display: block; /* Center align the logo */
+            margin-left: auto; /* Move the logo to the right */
+        }
+        .button-container {
+            position: absolute; /* Position the button container absolutely */
+            top: 35px; /* Distance from the top */
+            left: 120px; /* Distance from the right */
+            z-index: 2; /* Ensure buttons are above other content */
+        }
+        .button-container button {
+            font-family: 'Times New Roman';
+            color: #fff; /* White text color */
+            background-color: #10459C; /* Original button background color */
+            border: 2px solid #007bff; /* Original button border */
+            padding: 10px 20px; /* Add padding to the button */
+            margin-bottom: 10px; /* Add margin between buttons */
+            font-size: 1.2rem; /* Increase font size of buttons */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Add smooth transitions */
+            display: block; /* Display buttons as block elements */
+            width: 100%; /* Occupy full width */
+            text-align: center; /* Center align text */
+        }
+        .button-container button:last-child {
+            margin-bottom: 0; /* Remove margin from the last button */
+        }
+        .button-container button:hover {
+            background-color: #0056b3; /* Darker background color on hover */
+            border-color: #0056b3; /* Darker border color on hover */
+            color: #fff; /* White text color on hover */
+        }
+        section {
+            text-align: center; /* Center align section content */
+            margin-top: 20px; /* Add margin to push content below the buttons */
+        }
+        .logos {
+            display: block;
+            margin: 20px auto;
+            width: 150px; /* Adjust width as needed */
+            cursor: pointer;
+            margin-left: auto
+        }
+        .logo-container {
+        display: flex; /* Use flexbox layout */
+        justify-content: center; /* Center the logos horizontally */
+        align-items: center; /* Center the logos vertically */
+        }
+        .logocontainer {
+        display: 100px; /* Use flexbox layout */
+        justify-content: center; /* Center the logos horizontally */
+        text-align: left; /* Center the logos vertically */
+        }
+        .logo-container img {
+        width: 150px; /* Adjust the width of the logos as needed */
+        margin: 0 10px; /* Add some margin between logos */
+        }
+        .link:hover {
+        background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="metro.jpg" alt="Metro Logo" class="logo"> <!-- Replace with your logo -->
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href='Signin.html'">Sign Up</button>
+            <button onclick="window.location.href='Login.html'">Login</button>
+            <button onclick="window.location.href='ticket_booking.html'">Book Ticket</button>
+            <button onclick="window.location.href='time_schedule.html'">Time Schedule</button>
+            <button onclick="window.location.href='MetroMAP.html'">Metro Map</button>
+            <button onclick="window.location.href='view_ticket.html'">View Ticket</button>
+
+
+        </div>
+    </header>
+    <h1 style="color: #007bff; font-family:'Times New Roman'; text-align: center;" >Terms and Conditions</h1>
+    <section class="container">
+       <p> This official website of the "Mumbai Metropolitan Region Development Authority (MMRDA)" has been developed to provide information to the general public. The documents and information displayed in this website are for reference purposes only and does not purport to be a legal document.
+<br>
+<br>
+MMRDA does not warrant the accuracy or completeness of the information, text, graphics, links or other items contained within the website. As a result of updates and corrections, the web contents are subject to change without any notice.
+<br>
+<br>
+In case of any variance between what has been stated and that contained in the relevant Act, Rules, Regulations, Policy Statements etc, the latter shall prevail.
+<br>
+<br>
+Any specific advice or replies to queries in any part of the website is/are the personal views/opinion of such experts/consultants/persons and are not necessarily subscribed to by this organization or its websites.
+<br>
+<br>
+Certain links on the website lead to resources located on other websites maintained by third parties over whom MMRDA has no control or connection. These websites are external to MMRDA and by visiting these you are outside the MMRDA website and its channels. MMRDA neither endorses in any way nor offers any judgment or warranty and accepts no responsibility or liability for the authenticity, availability of any of the goods or services or for any damage, loss or harm, direct or consequential or any violation of local or international laws that may be incurred by your visiting and transacting on these websites.
+<br><br>
+These terms and conditions shall be governed by and constructed in accordance with the Indian Laws. Any dispute arising under these terms and conditions shall be subject to the exclusive jurisdiction of the courts of India.
+<br><br>
+<b>Webmaster:
+<br>
+Maanya and Aditya
+</p></b>
+    </section>
+    <br></br>
+    <div class = "logo-container">
+        <a href="https://mmrda.maharashtra.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="mmrda.png" alt="MMRDA" class="logos">
+        </a>
+        <a href="https://aaplesarkar.maharashtra.gov.in/en/"> <!-- Adjust href to your index page -->
+            <img src="sarkar.png" alt="sarkar" class="logos">
+        </a>
+        <a href="https://mmrcl.com/"> <!-- Adjust href to your index page -->
+            <img src="MMRC.png" alt="MMRC" class="logos">
+        </a>
+        <a href="https://www.maharashtra.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="Shasan.png" alt="Shasan" class="logos">
+        </a>
+        <a href="https://www.mmmocl.co.in/"> <!-- Adjust href to your index page -->
+            <img src="mumbaimetro.png" alt="mumbaimetro" class="logos">
+        </a>
+        <a href="https://www.india.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="indiagov.png" alt="indiagov" class="logos">
+        </a>
+        <a href="https://www.digilocker.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="digilocker.png" alt="digilocker" class="logos">
+        </a>
+        <a href="https://www.digitalindia.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="digitalindia.png" alt="digitalindia" class="logos">
+        </a>
+    </div>
+    <br>
+    <div class = "containerlink" >
+        <a href="index.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> HomePage</h3>
+        </a>
+        <a href="disclaimer.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Disclaimer</h3>
+        </a>
+        <a href="tac.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Terms and Conditions</h3>
+        </a>
+        <a href="policy.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Website Policy</h3>
+        </a>
+        <a href="https://mmrda.maharashtra.gov.in/help"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Help</h3>
+        </a>
+
+    </div>
+    <div class = "container" >
+        <h4>Copyright © 2024 Maanya and KAMOO ® All Rights Reserved</h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Ticket Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'times new roman';
+            background-color: #007bff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 30px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .ticket-info {
+            text-align: left;
+            margin-top: 30px;
+        }
+        .ticket-info p {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metro Ticket Details</h1>
+        <label for="ticketId">Enter Ticket ID:</label>
+        <input type="text" id="ticketId" placeholder="Enter ticket ID...">
+        <button onclick="showTicketDetails()">Submit</button>
+        <div class="ticket-info" id="ticketDetails">
+            <!-- Ticket details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showTicketDetails() {
+            var ticketId = document.getElementById('ticketId').value;
+            
+            // Mock ticket details - replace with actual data retrieval logic
+            var ticketDetails = {
+                id: ticketId,
+                date: '2024-04-04',
+                time: '12:00 PM',
+                validity: '2024-04-04 02:00 PM',
+                paymentMethod: 'Credit Card',
+                gender: 'Male',
+                source: 'Gundavli',
+                destination: 'Andheri West',
+                ticketPrice: 120 // Example ticket price
+            };
+
+            var currentDate = new Date();
+            var validityTime = new Date(ticketDetails.validity);
+            var timeDifference = validityTime.getTime() - currentDate.getTime();
+            var minutesLeft = Math.floor(timeDifference / (1000 * 60));
+            var hoursLeft = Math.floor(minutesLeft / 60);
+            minutesLeft = minutesLeft % 60;
+
+            var ticketInfo = document.getElementById('ticketDetails');
+            ticketInfo.innerHTML = `
+                <p><strong>Ticket ID:</strong> ${ticketDetails.id}</p>
+                <p><strong>Date:</strong> ${ticketDetails.date}</p>
+                <p><strong>Time:</strong> ${ticketDetails.time}</p>
+                <p><strong>Valid until:</strong> ${ticketDetails.validity}</p>
+                <p><strong>Time Left:</strong> ${hoursLeft} hours ${minutesLeft} minutes</p>
+                <p><strong>Payment Method:</strong> ${ticketDetails.paymentMethod}</p>
+                <p><strong>Gender:</strong> ${ticketDetails.gender}</p>
+                <p><strong>Source Station:</strong> ${ticketDetails.source}</p>
+                <p><strong>Destination Station:</strong> ${ticketDetails.destination}</p>
+                <p><strong>Price of Ticket:</strong> Rs ${ticketDetails.ticketPrice}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

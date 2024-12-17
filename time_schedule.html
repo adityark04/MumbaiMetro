@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Schedule</title>
+    <center><img src="banner.png" width="1500"></center>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td:first-child {
+            font-weight: bold;
+        }
+        /* Scroll Effect */
+        .scroll-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="scroll-effect">
+    <h3><b>Metro timings are from 6:00 a.m. to 11:30 p.m.</b></h3>
+    <h3><b>Next train arriving at Malad West in 10 minutes. Avoid rush hour, book your ticket now!</b></h3>
+    <h3><b>Buy a monthly metro pass and save up to 20% on your fare!</b></h3>
+</div>
+<div class="container">
+    <form id="departureForm">
+        <label for="departureStation"><b>You are at?</b></label>
+        <select id="departureStation" name="departureStation">
+            <option value="Gundavali">Gundavali</option>
+            <option value="Mogra">Mogra</option>
+            <option value="Jogeshwari East">Jogeshwari East</option>
+            <option value="Goregaon East">Goregaon East</option>
+            <option value="Aarey">Aarey</option>
+            <option value="Dindoshi">Dindoshi</option>
+            <option value="Kurar">Kurar</option>
+            <option value="Akurli">Akurli</option>
+            <option value="Poisar">Poisar</option>
+            <option value="Magathane">Magathane</option>
+            <option value="Devipada">Devipada</option>
+            <option value="Rashtriya Udyan">Rashtriya Udyan</option>
+            <option value="Ovaripada">Ovaripada</option>
+            <option value="Dahisar East">Dahisar East</option>
+            <option value="Change for Yellow Line">Change for Yellow Line</option>
+            <option value="Anand Nagar">Anand Nagar</option>
+            <option value="Kandarpada">Kandarpada</option>
+            <option value="Mandapeshwar">Mandapeshwar</option>
+            <option value="Eksar">Eksar</option>
+            <option value="Borivali West">Borivali West</option>
+            <option value="Shimpoli">Shimpoli</option>
+            <option value="Kandivali West">Kandivali West</option>
+            <option value="Dahanukarwadi">Dahanukarwadi</option>
+            <option value="Valnai">Valnai</option>
+            <option value="Malad West">Malad West</option>
+            <option value="Lower Malad">Lower Malad</option>
+            <option value="Bangur Nagar">Bangur Nagar</option>
+            <option value="Goregaon West">Goregaon West</option>
+            <option value="Oshiwara">Oshiwara</option>
+            <option value="Lower Oshiwara">Lower Oshiwara</option>
+            <option value="Andheri West">Andheri West</option>
+        </select>
+        <input type="submit" value="Show Schedule">
+    </form>
+    <table id="metroSchedule">
+        <thead>
+            <tr>
+                <th>Station</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="scheduleBody"></tbody>
+    </table>
+</div>
+<button class="back-button" onclick="goBack()">Back</button>
+
+<script>
+    const metroSchedule = {
+        'Gundavali': generateSchedule(6, 0, 23, 30),
+        'Mogra': generateSchedule(6, 0, 23, 30),
+        'Jogeshwari East': generateSchedule(6, 0, 23, 30),
+        'Goregaon East': generateSchedule(6, 0, 23, 30),
+        'Aarey': generateSchedule(6, 0, 23, 30),
+        'Dindoshi': generateSchedule(6, 0, 23, 30),
+        'Kurar': generateSchedule(6, 0, 23, 30),
+        'Akurli': generateSchedule(6, 0, 23, 30),
+        'Poisar': generateSchedule(6, 0, 23, 30),
+        'Magathane': generateSchedule(6, 0, 23, 30),
+        'Devipada': generateSchedule(6, 0, 23, 30),
+        'Rashtriya Udyan': generateSchedule(6, 0, 23, 30),
+        'Ovaripada': generateSchedule(6, 0, 23, 30),
+        'Dahisar East': generateSchedule(6, 0, 23, 30),
+        'Change for Yellow Line': generateSchedule(6, 0, 23, 30),
+        'Anand Nagar': generateSchedule(6, 0, 23, 30),
+        'Kandarpada': generateSchedule(6, 0, 23, 30),
+        'Mandapeshwar': generateSchedule(6, 0, 23, 30),
+        'Eksar': generateSchedule(6, 0, 23, 30),
+        'Borivali West': generateSchedule(6, 0, 23, 30),
+        'Shimpoli': generateSchedule(6, 0, 23, 30),
+        'Kandivali West': generateSchedule(6, 0, 23, 30),
+        'Dahanukarwadi': generateSchedule(6, 0, 23, 30),
+        'Valnai': generateSchedule(6, 0, 23, 30),
+        'Malad West': generateSchedule(6, 0, 23, 30),
+        'Lower Malad': generateSchedule(6, 0, 23, 30),
+        'Bangur Nagar': generateSchedule(6, 0, 23, 30),
+        'Goregaon West': generateSchedule(6, 0, 23, 30),
+        'Oshiwara': generateSchedule(6, 0, 23, 30),
+        'Lower Oshiwara': generateSchedule(6, 0, 23, 30),
+        'Andheri West': generateSchedule(6, 0, 23, 30)
+    };
+
+    const departureForm = document.getElementById('departureForm');
+    const metroScheduleTable = document.getElementById('scheduleBody');
+
+    departureForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedDepartureStation = document.getElementById('departureStation').value;
+        displaySchedule(selectedDepartureStation);
+    });
+
+    function displaySchedule(departureStation) {
+        metroScheduleTable.innerHTML = ''; // Clear existing schedule
+
+        for (const station in metroSchedule) {
+            if (station === departureStation) {
+                const scheduleTimes = metroSchedule[station];
+                scheduleTimes.forEach(time => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${station}</td><td>${time}</td>`;
+                    metroScheduleTable.appendChild(row);
+                });
+                break; // No need to continue looping
+            }
+        }
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+
+    function generateSchedule(startHour, startMinute, endHour, endMinute) {
+        const schedule = [];
+        let currentHour = startHour;
+        let currentMinute = startMinute;
+        
+        while (currentHour < endHour || (currentHour === endHour && currentMinute <= endMinute)) {
+            const formattedHour = String(currentHour).padStart(2, '0');
+            const formattedMinute = String(currentMinute).padStart(2, '0');
+            const time = `${formattedHour}:${formattedMinute} AM`;
+            schedule.push(time);
+
+            currentMinute += 8;
+            if (currentMinute >= 60) {
+                currentHour++;
+                currentMinute -= 60;
+            }
+        }
+
+        return schedule;
+    }
+</script>
+</body>
+</html>

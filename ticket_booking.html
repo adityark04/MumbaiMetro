@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Times New Roman';
+            background-color: #10459C;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        .ticket {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BOOK TICKETS</h1>
+        <img src="MetroTicketBook.jpg" alt="Ticket" class="img-fluid mb-3">
+
+        <form action="ticket_print.html" method="get" class="ticketForm">
+
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" class="form-control" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="Credit">Credit Card</option>
+                    <option value="Debit">Debit Card</option>
+                    <option value="Paypal">PayPal</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Source Station:</label>
+                <select id="source" name="source" class="form-control" required>
+                    <option value="">Select Source Station</option>
+                    <option value="Gundavali">Gundavali</option>
+                    <option value="Mogra">Mogra</option>
+                    <option value="Jogeshwari East">Jogeshwari East</option>
+                    <option value="Goregaon East">Goregaon East</option>
+                    <option value="Aarey">Aarey</option>
+                    <option value="Dindoshi">Dindoshi</option>
+                    <option value="Kurar">Kurar</option>
+                    <option value="Akurli">Akurli</option>
+                    <option value="Poisar">Poisar</option>
+                    <option value="Magathane">Magathane</option>
+                    <option value="Devipada">Devipada</option>
+                    <option value="Rashtriya Udyan">Rashtriya Udyan</option>
+                    <option value="Ovaripada">Ovaripada</option>
+                    <option value="Dahisar East">Dahisar East</option>
+                    <option value="Anand Nagar">Anand Nagar</option>
+                    <option value="Kandarpada">Kandarpada</option>
+                    <option value="Mandapeshwar">Mandapeshwar</option>
+                    <option value="Eksar">Eksar</option>
+                    <option value="Borivali West">Borivali West</option>
+                    <option value="Shimpoli">Shimpoli</option>
+                    <option value="Kandivali West">Kandivali West</option>
+                    <option value="Dahanukarwadi">Dahanukarwadi</option>
+                    <option value="Valnai">Valnai</option>
+                    <option value="Malad West">Malad West</option>
+                    <option value="Lower Malad">Lower Malad</option>
+                    <option value="Bangur Nagar">Bangur Nagar</option>
+                    <option value="Goregaon West">Goregaon West</option>
+                    <option value="Oshiwara">Oshiwara</option>
+                    <option value="Lower Oshiwara">Lower Oshiwara</option>
+                    <option value="Andheri West">Andheri West</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination Station:</label>
+                <select id="destination" name="destination" class="form-control" required>
+                    <option value="">Select Destination Station</option>
+                    <option value="Gundavali">Gundavali</option>
+                    <option value="Mogra">Mogra</option>
+                    <option value="Jogeshwari East">Jogeshwari East</option>
+                    <option value="Goregaon East">Goregaon East</option>
+                    <option value="Aarey">Aarey</option>
+                    <option value="Dindoshi">Dindoshi</option>
+                    <option value="Kurar">Kurar</option>
+                    <option value="Akurli">Akurli</option>
+                    <option value="Poisar">Poisar</option>
+                    <option value="Magathane">Magathane</option>
+                    <option value="Devipada">Devipada</option>
+                    <option value="Rashtriya Udyan">Rashtriya Udyan</option>
+                    <option value="Ovaripada">Ovaripada</option>
+                    <option value="Dahisar East">Dahisar East</option>
+                    <option value="Anand Nagar">Anand Nagar</option>
+                    <option value="Kandarpada">Kandarpada</option>
+                    <option value="Mandapeshwar">Mandapeshwar</option>
+                    <option value="Eksar">Eksar</option>
+                    <option value="Borivali West">Borivali West</option>
+                    <option value="Shimpoli">Shimpoli</option>
+                    <option value="Kandivali West">Kandivali West</option>
+                    <option value="Dahanukarwadi">Dahanukarwadi</option>
+                    <option value="Valnai">Valnai</option>
+                    <option value="Malad West">Malad West</option>
+                    <option value="Lower Malad">Lower Malad</option>
+                    <option value="Bangur Nagar">Bangur Nagar</option>
+                    <option value="Goregaon West">Goregaon West</option>
+                    <option value="Oshiwara">Oshiwara</option>
+                    <option value="Lower Oshiwara">Lower Oshiwara</option>
+                    <option value="Andheri West">Andheri West</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Book Ticket</button>
+        </form>
+
+        <!-- Blue back button -->
+        <a href="index.html" class="btn btn-primary btn-block mt-3">Back</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const form = document.getElementById("ticket-form");
+        const paymentMethod = document.getElementById("paymentMethod");
+        const gender = document.getElementById("gender");
+        const source = document.getElementById("source");
+        const destination = document.getElementById("destination");
+    
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            let isValid = true;
+    
+            // Validate form fields
+            if (paymentMethod.value.trim() === "") {
+                alert("Please select a payment method.");
+                isValid = false;
+            }
+    
+            if (gender.value.trim() === "") {
+                alert("Please select a gender.");
+                isValid = false;
+            }
+    
+            if (source.value.trim() === "") {
+                alert("Please select a source station.");
+                isValid = false;
+            }
+    
+            if (destination.value.trim() === "") {
+                alert("Please select a destination station.");
+                isValid = false;
+            }
+    
+            if (isValid) {
+                try {
+                    // Construct the form data
+                    const formData = new FormData();
+                    formData.append("paymentMethod", paymentMethod.value.trim());
+                    formData.append("gender", gender.value.trim());
+                    formData.append("source", source.value.trim());
+                    formData.append("destination", destination.value.trim());
+    
+                    // Send the form data to the server
+                    const response = await fetch("/submit-ticket", {
+                        method: "POST",
+                        body: formData
+                    });
+    
+                    if (response.ok) {
+                        alert("Ticket submitted successfully!");
+                        // Redirect to ticket print page or any other page
+                        window.location.href = "ticket_print.html";
+                    } else {
+                        alert("Failed to submit ticket. Please try again later.");
+                    }
+                } catch (error) {
+                    console.error("Error submitting ticket:", error);
+                    alert("An error occurred while submitting the ticket. Please try again later.");
+                }
+            }
+        });
+    </script>
+    
+    <button class="back-button" onclick="goBack()">Back</button>
+
+
+</body>
+</html>

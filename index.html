@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+            font-family: 'Times New Roman'; /* Improved font stack */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f3f3f3; /* Light background color */
+        }
+        header {
+            background-color: #007bff; /* Metro blue header background color */
+            color: #fff; /* Text color for header */
+            padding: 20px 0; /* Add padding to the top and bottom of the header */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space items evenly */
+            align-items: center; /* Center align items vertically */
+        }
+        .container {
+            max-width: 1200px; /* Limit content width for better readability */
+            margin: 0 auto; /* Center align content */
+            padding: 20px; /* Add padding to the container */
+            position: relative; /* Positioning context for absolute positioning */
+            display: flex; /* Use flexbox for layout */
+        }
+        .logo {
+            width: 80%; /* Make logo responsive */
+            max-width: calc(100vw - 40px); /* Set max-width to fit window size */
+            display: block; /* Center align the logo */
+            margin-left: auto; /* Move the logo to the right */
+        }
+        .button-container {
+            position: absolute; /* Position the button container absolutely */
+            top: 35px; /* Distance from the top */
+            left: 120px; /* Distance from the right */
+            z-index: 2; /* Ensure buttons are above other content */
+        }
+        .button-container button {
+            font-family: 'Times New Roman';
+            color: #fff; /* White text color */
+            background-color: #10459C; /* Original button background color */
+            border: 2px solid #007bff; /* Original button border */
+            padding: 10px 20px; /* Add padding to the button */
+            margin-bottom: 10px; /* Add margin between buttons */
+            font-size: 1.2rem; /* Increase font size of buttons */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Add smooth transitions */
+            display: block; /* Display buttons as block elements */
+            width: 100%; /* Occupy full width */
+            text-align: center; /* Center align text */
+        }
+        .button-container button:last-child {
+            margin-bottom: 0; /* Remove margin from the last button */
+        }
+        .button-container button:hover {
+            background-color: #0056b3; /* Darker background color on hover */
+            border-color: #0056b3; /* Darker border color on hover */
+            color: #fff; /* White text color on hover */
+        }
+        .containerlink {
+            max-width: 1000px; /* Limit content width for better readability */
+            margin: 0 auto; /* Center align content */
+            padding: 20px; /* Add padding to the container */
+            position: relative; /* Positioning context for absolute positioning */
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Align items vertically */
+        }
+        .containerlink a {
+            margin-right: 20px; /* Add margin between links */
+        }
+        section {
+            text-align: center; /* Center align section content */
+            margin-top: 20px; /* Add margin to push content below the buttons */
+        }
+        .logos {
+            display: block;
+            margin: 20px auto;
+            width: 150px; /* Adjust width as needed */
+            cursor: pointer;
+            margin-left: auto
+        }
+        .logo-container {
+        display: flex; /* Use flexbox layout */
+        justify-content: center; /* Center the logos horizontally */
+        align-items: center; /* Center the logos vertically */
+        }
+        .logocontainer {
+        display: 100px; /* Use flexbox layout */
+        justify-content: center; /* Center the logos horizontally */
+        align-items: center; /* Center the logos vertically */
+        }
+
+        .logo-container img {
+        width: 150px; /* Adjust the width of the logos as needed */
+        margin: 0 10px; /* Add some margin between logos */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="metro.jpg" alt="Metro Logo" class="logo"> <!-- Replace with your logo -->
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href='Signin.html'">Sign Up</button>
+            <button onclick="window.location.href='Login.html'">Login</button>
+            <button onclick="window.location.href='ticket_booking.html'">Book Ticket</button>
+            <button onclick="window.location.href='time_schedule.html'">Time Schedule</button>
+            <button onclick="window.location.href='MetroMAP.html'">Metro Map</button>
+            <button onclick="window.location.href='view_ticket.html'">View Ticket</button>
+
+
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <h1>Welcome to Mumbai Metro!</h1>
+            <p>Enhance your metro experience with our user-friendly booking system, convenient time schedule, and interactive metro map. Explore the city hassle-free with Mumbai Metro!</p>
+        </div>
+    </section>
+    <br></br>
+    <div class = "logo-container">
+        <a href="https://mmrda.maharashtra.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="mmrda.png" alt="MMRDA" class="logos">
+        </a>
+        <a href="https://aaplesarkar.maharashtra.gov.in/en/"> <!-- Adjust href to your index page -->
+            <img src="sarkar.png" alt="sarkar" class="logos">
+        </a>
+        <a href="https://mmrcl.com/"> <!-- Adjust href to your index page -->
+            <img src="MMRC.png" alt="MMRC" class="logos">
+        </a>
+        <a href="https://www.maharashtra.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="Shasan.png" alt="Shasan" class="logos">
+        </a>
+        <a href="https://www.mmmocl.co.in/"> <!-- Adjust href to your index page -->
+            <img src="mumbaimetro.png" alt="mumbaimetro" class="logos">
+        </a>
+        <a href="https://www.india.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="indiagov.png" alt="indiagov" class="logos">
+        </a>
+        <a href="https://www.digilocker.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="digilocker.png" alt="digilocker" class="logos">
+        </a>
+        <a href="https://www.digitalindia.gov.in/"> <!-- Adjust href to your index page -->
+            <img src="digitalindia.png" alt="digitalindia" class="logos">
+        </a>
+    </div>
+    <br>
+    <div class = "containerlink" >
+        <a href="index.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> HomePage</h3>
+        </a>
+        <a href="disclaimer.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Disclaimer</h3>
+        </a>
+        <a href="tac.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Terms and Conditions</h3>
+        </a>
+        <a href="policy.html"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Website Policy</h3>
+        </a>
+        <a href="https://mmrda.maharashtra.gov.in/help"> <!-- Adjust href to your index page -->
+            <h3 style = "font-family: 'Times New Roman'; text-align: left;"> Help</h3>
+        </a>
+
+    </div>
+    <div class = "container" >
+        <h4>Copyright © 2024 Maanya and KAMOO ® All Rights Reserved</h4>
+    </div>
+</body>
+</html>

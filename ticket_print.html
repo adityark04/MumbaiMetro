@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Ticket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'times new roman';
+            background-color: #10459C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .ticket {
+            max-width: 400px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff6319;
+            padding-bottom: 10px;
+        }
+        .ticket-header h1 {
+            margin: 5px 0;
+            color: #ff6319;
+            font-size: 24px;
+        }
+        .ticket-info {
+            margin-bottom: 20px;
+        }
+        .ticket-info p {
+            margin: 5px 0;
+            color: #333333;
+        }
+        .ticket-info strong {
+            font-weight: bold;
+            color: #666666;
+        }
+        .metro-pic {
+            display: block;
+            margin: 20px auto;
+            width: 120px; /* Adjust width as needed */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="qr-code.jpeg" class ="qr_code">
+    <div class="ticket">
+        <div class="ticket-header">
+            <h1>Mumbai Metro</h1>
+        </div>
+        <div class="ticket-info">
+            <p><strong>Ticket ID: </strong><span id="Ticket_ID"></span></p>
+            <p><strong>Date: </strong> <span id="currentDate"></span></p>
+            <p><strong>Time: </strong> <span id="currentTime"></span></p>
+            <p><strong><span id="validity"></span></strong></p>
+        </div>
+        <div class="ticket-info">
+            <p><strong>Payment Method:</strong> <span id="paymentMethod"></span></p>
+            <p><strong>Gender:</strong> <span id="gender"></span></p>
+            <p><strong>Source Station:</strong> <span id="source"></span></p>
+            <p><strong>Destination Station:</strong> <span id="destination"></span></p>
+            <p><strong>Price of Ticket:</strong> Rs <span id="ticketPrice"></span></p>
+        </div>
+        <a href="index.html"> <!-- Adjust href to your index page -->
+            <img src="blue_metro_pic.jpg" alt="Blue Metro Pic" class="metro-pic">
+        </a>
+    </div>
+
+    <script>
+        // Function to generate a random ticket ID
+        function generateTicketID() {
+            TicketID = Math.floor(Math.random()*1000000); // Generates a random 6-digit number
+        }
+
+        // Function to calculate ticket price based on source and destination
+        function calculateTicketPrice(source, destination) {
+            // Dummy price calculation (can be replaced with actual logic)
+            var distance = Math.abs(getStationIndex(destination) - getStationIndex(source));
+            return distance * 10; // Assuming Rs 10 per station
+        }
+
+        // Function to get the index of a station in the stations array
+        function getStationIndex(station) {
+            var stations = ['Gundavali', 'Akurli', 'Magathane', 'Anand Nagar', 'Malad West', 'Oshiwara', 'DN Nagar', 'Jogeshwari East', 'Goregaon East', 'Aarey', 'Dindoshi', 'Kurar', 'Poisar', 'Devipada', 'Rashtriya Udyan', 'Ovaripada', 'Dahisar East', 'Change for Yellow Line', 'Anand Nagar', 'Kandarpada', 'Mandapeshwar', 'Eksar', 'Borivali West', 'Shimpoli', 'Kandivali West', 'Dahanukarwadi', 'Valnai', 'Malad West', 'Lower Malad', 'Bangur Nagar', 'Goregaon West', 'Lower Oshiwara', 'Andheri West']; 
+            return stations.indexOf(station);
+        }
+
+        // Function to check if a station is valid
+        function isValidStation(station) {
+            var validStations = ['Gundavali', 'Akurli', 'Magathane', 'Anand Nagar', 'Malad West', 'Oshiwara', 'DN Nagar', 'Jogeshwari East', 'Goregaon East', 'Aarey', 'Dindoshi', 'Kurar', 'Poisar', 'Devipada', 'Rashtriya Udyan', 'Ovaripada', 'Dahisar East', 'Change for Yellow Line', 'Anand Nagar', 'Kandarpada', 'Mandapeshwar', 'Eksar', 'Borivali West', 'Shimpoli', 'Kandivali West', 'Dahanukarwadi', 'Valnai', 'Malad West', 'Lower Malad', 'Bangur Nagar', 'Goregaon West', 'Lower Oshiwara', 'Andheri West']; 
+            return validStations.includes(station);
+        }
+
+        // Get current date and time
+        var Ticket_ID = new generateTicketID();
+        var now = new Date();
+        var currentDate = now.toLocaleDateString('en-US');
+        var currentTime = now.toLocaleTimeString('en-US');
+
+        // Retrieve ticket details from URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        var paymentMethod = urlParams.get('paymentMethod');
+        var gender = urlParams.get('gender');
+        var source = urlParams.get('source');
+        var destination = urlParams.get('destination');
+
+        // Calculate ticket validity (2 hours from booking time)
+        var validityTime = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+        var validityTimeString = validityTime.toLocaleTimeString('en-US');
+
+        // Calculate ticket price
+        var ticketPrice = calculateTicketPrice(source, destination);
+
+        // Populate ticket content
+        document.getElementById('Ticket_ID').innerText = TicketID;
+        document.getElementById('currentDate').innerText = currentDate;
+        document.getElementById('currentTime').innerText = currentTime;
+        document.getElementById('validity').innerText = 'Valid until: ' + validityTimeString;
+        document.getElementById('paymentMethod').innerText = paymentMethod;
+        document.getElementById('gender').innerText = gender;
+        document.getElementById('source').innerText = source;
+        document.getElementById('destination').innerText = destination;
+        document.getElementById('ticketPrice').innerText = ticketPrice.toFixed(2); // Display ticket price with 2 decimal places
+
+        
+
+
+
+
+    </script>
+    <button class="back-button" onclick="goBack()">Back</button>
+
+</body>
+</html>

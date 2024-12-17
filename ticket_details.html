@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .ticket {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Details</h1>
+        <div class="ticket">
+            <p>Payment Method: <span id="paymentMethod"></span></p>
+            <p>Gender: <span id="gender"></span></p>
+            <p>Source Station: <span id="source"></span></p>
+            <p>Destination Station: <span id="destination"></span></p>
+            <p>Price of Ticket: <span id="ticketPrice"></span></p>
+        </div>
+        <a href="ticket_booking.html">Back to Book Ticket</a>
+    </div>
+    
+    <script>
+        // Retrieve ticket details from query parameters (if needed)
+        // Parse query parameters and display ticket details
+        var params = new URLSearchParams(window.location.search);
+        document.getElementById('paymentMethod').innerText = params.get('paymentMethod');
+        document.getElementById('gender').innerText = params.get('gender');
+        document.getElementById('source').innerText = params.get('source');
+        document.getElementById('destination').innerText = params.get('destination');
+        document.getElementById('ticketPrice').innerText = params.get('ticketPrice');
+    </script>
+</body>
+</html>

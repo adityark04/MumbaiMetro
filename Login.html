@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Times New Roman;
+            background-color: #10459C;
+        }
+
+        button{
+            width: 150px;
+            padding: 12px;
+            margin: 0 auto;
+            background-color: #007bff;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+            border-radius: 4px;
+        }
+        button label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        button input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        button input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .login-container {
+            width: 300px;
+            padding: 30px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-container input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: #ff0000;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" >
+        <h2>Login</h2>
+        <form id="login-form" action="http://localhost:5500/login" method="POST"> 
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <div class="error" id="username-error"></div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="error" id="password-error"></div>
+            <input type="submit" value="Login" >
+        </form>
+    </div>
+    <div class="login-container" style="text-align:center;" align="center">
+        <p><b>Don't have an account?</p>
+        <p>Create a new Account</b><p>
+        <button onclick="window.location.href='Signin.html'" style="text-align: center;">Sign Up</button>
+    </div>
+
+    <script>
+        const axios = require('axios'); // Assuming Axios is installed using a package manager
+    
+        const form = document.getElementById("login-form");
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+    
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+    
+          let isValidForm = true;
+    
+          // Validate username and password (unchanged)
+    
+          if (isValidForm) {
+            try {
+              const loginData = { username: username.value.trim(), password: password.value.trim() };
+              const response = await axios.post('/login', loginData, {
+                headers: { 'Content-Type': 'application/json' }
+              });
+    
+              if (response.status === 200) {   // Assuming 200 for success
+                console.log("Login successful, redirecting...");
+                window.location.href = "index.html";
+                }
+               else {
+                // Login failed, display error message based on status code
+                let errorMessage = "Login failed. Please check your username and password.";
+                if (response.status === 401) {
+                  errorMessage = "Invalid username or password";
+                } else if (response.status >= 500) {
+                  errorMessage = "An error occurred on the server. Please try again later.";
+                }
+                alert(errorMessage);
+              }
+            } catch (error) {
+              // Handle network errors or other exceptions
+              console.error('Error during login:', error);
+              alert("An error occurred during login. Please try again later.");
+            }
+          }
+        });
+      </script>
+    </body>
+</html>
