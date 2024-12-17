@@ -26,7 +26,7 @@ Axios: For handling form submissions and HTTP requests.
 
 🤝 Contributors
 This project was a collaborative effort by:
-Aditya Kamath
+Aditya Kamath ,
 Maanya Soni 
 
 
